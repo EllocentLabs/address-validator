@@ -1,8 +1,8 @@
 /* Constants declarations */
 // Please set domain value after running backend app
 const PORT = "8080"
-const DOMAIN =  "127.0.0.1:"+PORT
-const BASE_URL = "https://"+DOMAIN+"/api/"
+const DOMAIN = "127.0.0.1:"+PORT
+const BASE_URL = "http://"+DOMAIN+"/api/"
 const USPS_URL = "https://addver.postgrid.com/api/verifications"
 const ENDPOINTS = {
     SAVE_ADDRESS: "create.php"
@@ -185,7 +185,7 @@ function toggleButton(id, enabled) {
 }
 
 // populate data to preview modal
-function previewAddress(data) {
+function previewAddress(data = {}) {
     const {
         address,
         address2,
@@ -194,15 +194,15 @@ function previewAddress(data) {
         postal
     } = data
     addressPreview.innerHTML = `
-        <span>Address Line 1:${address}<span>
+        <span>Address Line 1:${address || ""}<span>
         <br>
-        <span>Address Line,  2:${address2}<span>
+        <span>Address Line,  2:${address2 || ""}<span>
         <br>
-        <span>City:${city}<span>
+        <span>City:${city || ""}<span>
         <br>
-        <span>State:${prov}<span>
+        <span>State:${prov || ""}<span>
         <br>
-        <span>Zip Code:${postal}<span>
+        <span>Zip Code:${postal || ""}<span>
     `
 
     openPreviewModel()
@@ -327,7 +327,7 @@ function validateAddressWithUSPS(event) {
                 postal: response.postalZip
             }
 
-            previewAddress(originalAddress)
+            previewAddress(apiAddress)
 
             saveAddressButton.disabled = response.valid !== "C"
 
