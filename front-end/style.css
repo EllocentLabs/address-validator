@@ -1,0 +1,42 @@
+.field{
+    width:95%;
+}
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.switchButton1{
+    background:#e4eaf8;
+    color:#0D6FED;
+    width:90px;
+    border-radius: 5px 0px 0px 5px;
+    cursor: pointer;
+}
+.switchButton2{
+    background:#0D6FED;
+    color:#e4eaf8;
+    width:186px;
+    height:37px;
+    border-radius: 0px 5px 5px 0px;
+    cursor: pointer;
+}
+
+.app-main-container {
+    height:100vh;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-form-container {
+    width: 500px !important;
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 4px;
+    background: white;
+}
+.text-center {
+    text-align: center;
+}
